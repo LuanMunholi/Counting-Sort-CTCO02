@@ -18,6 +18,10 @@ tVet *leArquivo(char *nomeArquivo);
 // Retorna o tipo tVet, composto por um vetor de inteiros e o tamanho do vetor
 // A primeira linha do arquivo possui o tamanho do vetor
 
+void selecao(int *v, int tam);
+
+
+int buscaMenor(int *v, int inicio, int tam);
 
 
 #endif // Selecao
