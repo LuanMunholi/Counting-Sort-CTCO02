@@ -1,72 +1,31 @@
+#include "quickSort.h"
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct
-{
-    int *vet;
-    int tam;
-} tVet;
-
-// Função que retorna o tamanho do vetor
-int getVetTam(tVet *res)
-{
-    return res->tam;
+void swap(int *a, int *b) {
+  int t = *a;
+  *a = *b;
+  *b = t;
 }
 
-// Função que retorna o vetor
-int *getVet(tVet *res)
-{
-    return res->vet;
+int partition(int arr[], int low, int high) {
+  int pivot = arr[high];
+  int i = low - 1;
+
+  for (int j = low; j < high; j++) {
+    if (arr[j] < pivot) {
+      i++;
+      swap(&arr[i], &arr[j]);
+    }
+  }
+  swap(&arr[i + 1], &arr[high]);
+  return i + 1;
 }
 
-// Função que imprime um vetor
-// printf("%d ", vet[i])
-void imprimeVet(int *v, int tam)
-{
-    for (int i = 0; i < tam; i++) // for com o tamanho do vetor
-    {
-        printf("%d ", v[i]);
-    }
-}
-
-tVet *leArquivo(char *nomeArquivo)
-{
-    FILE *file;
-    int tam;
-    file = fopen(nomeArquivo, "r");
-    if (file == NULL)
-    {
-        printf("file vazio");
-        return NULL;
-    }
-
-    fscanf(file, "%d", &tam); // escaneia o primeiro inteiro
-
-    tVet *str = malloc(sizeof(tVet)); // com o tamanho agora é possivel criar a struct
-    if (str == NULL)
-    {
-        printf("Impossivel alocar struct");
-        fclose(file);
-        return NULL;
-    }
-
-    str->tam = tam;
-    str->vet = malloc(tam * sizeof(int)); // aloca memória para o vetor
-
-    if (str->vet == NULL)
-    {
-        printf("Impossível alocar memória para o vetor.\n");
-        free(str); // libera a memória alocada para a estrutura
-        fclose(file);
-        return NULL;
-    }
-
-    for (int i = 0; i < tam; i++) // lendo os numeros do vetor
-    {
-        fscanf(file, "%d", &str->vet[i]);
-    }
-
-    fclose(file);
-
-    return str;
+void quickSort(int arr[], int low, int high) {
+  if (low < high) {
+    int pi = partition(arr, low, high);
+    quickSort(arr, low, pi - 1);
+    quickSort(arr, pi + 1, high);
+  }
 }
