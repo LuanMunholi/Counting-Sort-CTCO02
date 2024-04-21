@@ -1,72 +1,30 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "countingSort.h"
 
-typedef struct
-{
-    int *vet;
-    int tam;
-} tVet;
+void countingSort(int arr[], int n, int max) {
+  int output[n];
+  int count[max + 1];
+  int i;
 
-// Função que retorna o tamanho do vetor
-int getVetTam(tVet *res)
-{
-    return res->tam;
-}
+  for (i = 0; i <= max; ++i) {
+    count[i] = 0;
+  }
 
-// Função que retorna o vetor
-int *getVet(tVet *res)
-{
-    return res->vet;
-}
+  for (i = 0; i < n; i++) {
+    count[arr[i]]++;
+  }
 
-// Função que imprime um vetor
-// printf("%d ", vet[i])
-void imprimeVet(int *v, int tam)
-{
-    for (int i = 0; i < tam; i++) // for com o tamanho do vetor
-    {
-        printf("%d ", v[i]);
-    }
-}
+  for (i = 1; i <= max; i++) {
+    count[i] += count[i - 1];
+  }
 
-tVet *leArquivo(char *nomeArquivo)
-{
-    FILE *file;
-    int tam;
-    file = fopen(nomeArquivo, "r");
-    if (file == NULL)
-    {
-        printf("file vazio");
-        return NULL;
-    }
+  for (i = n - 1; i >= 0; i--) {
+    output[count[arr[i]] - 1] = arr[i];
+    count[arr[i]]--;
+  }
 
-    fscanf(file, "%d", &tam); // escaneia o primeiro inteiro
-
-    tVet *str = malloc(sizeof(tVet)); // com o tamanho agora é possivel criar a struct
-    if (str == NULL)
-    {
-        printf("Impossivel alocar struct");
-        fclose(file);
-        return NULL;
-    }
-
-    str->tam = tam;
-    str->vet = malloc(tam * sizeof(int)); // aloca memória para o vetor
-
-    if (str->vet == NULL)
-    {
-        printf("Impossível alocar memória para o vetor.\n");
-        free(str); // libera a memória alocada para a estrutura
-        fclose(file);
-        return NULL;
-    }
-
-    for (int i = 0; i < tam; i++) // lendo os numeros do vetor
-    {
-        fscanf(file, "%d", &str->vet[i]);
-    }
-
-    fclose(file);
-
-    return str;
+  for (i = 0; i < n; i++) {
+    arr[i] = output[i];
+  }
 }
