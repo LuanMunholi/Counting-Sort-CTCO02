@@ -18,7 +18,7 @@ int main(){
         numbers[i] = i+1;
     }
 
-    //seed diferente pra cara arquivo
+    //Seed diferente pra cara arquivo
     srand(42376019);
 
     // Selecionando 10% dos números para embaralhar

@@ -7,6 +7,8 @@
 #include "./Vetor/vetor.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
+
 
 void sort(char* algName, tVet* tArr);
 
@@ -14,7 +16,10 @@ int main() {
   tVet *tArr;
   char inFile[25];
   char resposta;
+  clock_t start, end;
+  double tempo_decorrido;
 
+  /*
   printf("Deseja gerar números aleatórios? (y/n): ");
   scanf(" %c", &resposta); // Espaço antes de %c para ignorar espaços em branco e quebras de linha
 
@@ -33,18 +38,35 @@ int main() {
 
   for(int i=1000; i<=1000; i=i*10){
     sprintf(inFile, "random_%d.txt", i);
-    tArr = leArquivo(inFile);
-    // Implementar cálculo de tempo e troca aqui na chamada das funções
-    sort("quickSort", tArr);
-    tArr = leArquivo(inFile);
-    sort("insertionSort", tArr);
-    //tArr = leArquivo(inFile);
-    //sort("countingSort", tArr);
-    //tArr = leArquivo(inFile);
-    sort("mergeSort", tArr);
-    //tArr = leArquivo(inFile);
-    //sort("selectionSort", tArr);
-  }
+  */
+
+
+  tArr = leArquivo(inFile);
+
+
+  //Exemplo de captura de tempo do algoritimo
+  // Captura o tempo antes da execução da função
+  start = clock();
+
+  //Roda o algoritimo
+  sort("quickSort", tArr);
+
+  // Captura o tempo depois da execução da função
+  end = clock();
+
+  // Calcula o tempo decorrido em milissegundos
+  tempo_decorrido = ((double) (end - start)) * 1000.0 / CLOCKS_PER_SEC;
+
+  tArr = leArquivo(inFile);
+  sort("insertionSort", tArr);
+  //tArr = leArquivo(inFile);
+  //sort("countingSort", tArr);
+  //tArr = leArquivo(inFile);
+  sort("mergeSort", tArr);
+  //tArr = leArquivo(inFile);
+  //sort("selectionSort", tArr);
+  
+  //}
 
   // TESTAR AQUI
   imprimeVetArq(getVet(tArr), getVetTam(tArr), "saida_1000.txt");
