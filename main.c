@@ -40,4 +40,9 @@ int main() {
   printf("\n A ordenacao levou: %f ms\n",tempo_decorrido);
   printf("Quantidade de comparacoes: %d\n", getComp(cont));
   printf("Quantidade de trocas: %d\n", getTrocas(cont));
+  resetCont(cont);
 }
+
+
+//codigo gcc para executar 
+//gcc main.c QuickSort/quickSort.c InsertionSort/insertionSort.c CountingSort/countingSort.c MergeSort/mergeSort.c SelectionSort/selectionSort.c Structs/structs.c -o teste
