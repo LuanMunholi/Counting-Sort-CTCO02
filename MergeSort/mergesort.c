@@ -1,24 +1,23 @@
 #include "mergeSort.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include "../Structs/structs.h"
 
 // Função que faz a fusão de dois vetores pré-ordenados e os copia para o vetor
 // original
-void merge(int *v, int inicio, int meio, int fim) {
+void merge(int *v, int inicio, int meio, int fim, contador *cont) {
   // variaveis auxiliares
-  int i = 0, j = 0, k = 0;
+  int i = 0, j = 0, k = inicio;
 
   // calculando tamanho dos vetores
   int n1 = meio - inicio + 1;
   int n2 = fim - meio;
-  int n3 = (fim - inicio) + 1;
 
   // iniciando os vetores
   int *V1 = malloc(n1 * sizeof(int));
   int *V2 = malloc(n2 * sizeof(int));
-  int *V3 = malloc(n3 * sizeof(int));
-  if (V1 == NULL || V2 == NULL || V3 == NULL) {
-    printf("Não foi possível alocar vetores V1, V2, V3");
+  if (V1 == NULL || V2 == NULL ) {
+    printf("Não foi possível alocar vetores V1, V2");
     return;
   }
 
@@ -32,45 +31,44 @@ void merge(int *v, int inicio, int meio, int fim) {
   i = 0;
   j = 0;
 
-  // compara os elementos de V1 e V2 e ordena no vetor auxiliar V3
+  // compara os elementos de V1 e V2 e ordena
   while (i < n1 && j < n2) {
+    addComp(cont);
     if (V1[i] <= V2[j]) {
-      V3[k] = V1[i];
+      v[k] = V1[i];
       i++;
     } else {
-      V3[k] = V2[j];
+      v[k] = V2[j];
       j++;
+      addTroca(cont);
     }
     k++;
   }
 
   // em caso de sobra de elementos em V1
   while (i < n1) {
-    V3[k] = V1[i];
+    v[k] = V1[i];
     i++;
     k++;
   }
 
   // em caso de sobra de elementos em V2
   while (j < n2) {
-    V3[k] = V2[j];
+    v[k] = V2[j];
     j++;
     k++;
   }
 
-  // copiando os elementos ordenados de V3 de volta para o vetor original v
-  for (int i = 0; i < n3; i++)
-    v[inicio + i] = V3[i];
 }
 
 // Função recursiva que executa a fase de divisão do algoritmo mergesort
-void mergeSort(int *v, int inicio, int fim) {
+void mergeSort(int *v, int inicio, int fim, contador *cont) {
   if (inicio < fim) {
     int meio = inicio + (fim - inicio) / 2;
 
-    mergeSort(v, inicio, meio);
-    mergeSort(v, meio + 1, fim);
+    mergeSort(v, inicio, meio, cont);
+    mergeSort(v, meio + 1, fim, cont);
 
-    merge(v, inicio, meio, fim);
+    merge(v, inicio, meio, fim, cont);
   }
 }

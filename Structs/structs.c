@@ -1,4 +1,4 @@
-#include "vetor.h"
+#include "structs.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -66,4 +66,30 @@ tVet *leArquivo(char *nomeArquivo) {
   fclose(file);
 
   return str;
+}
+
+// Função que retorna a quantidade de comparações
+int getComp(contador *res) {
+    return res->comp;
+}
+
+// Função que retorna a quantidade de trocas
+int getTrocas(contador *res) {
+    return res->trocas;
+}
+
+// Função que adiciona uma comparação
+void addComp(contador *res) {
+    res->comp++;
+}
+
+// Função que adiciona uma troca
+void addTroca(contador *res) {
+    res->trocas++;
+}
+
+// Função que zera o contador
+void resetCont(contador *res) {
+    res->comp = 0;
+    res->trocas = 0;
 }
