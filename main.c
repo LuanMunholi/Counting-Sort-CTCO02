@@ -59,8 +59,8 @@ int main() {
 
   tArr = leArquivo(inFile);
   sort("insertionSort", tArr);
-  //tArr = leArquivo(inFile);
-  //sort("countingSort", tArr);
+  tArr = leArquivo(inFile);
+  sort("countingSort", tArr);
   //tArr = leArquivo(inFile);
   sort("mergeSort", tArr);
   //tArr = leArquivo(inFile);
