@@ -154,15 +154,16 @@ void testAlmostSorted(char* algName){
 
 void sort(char* algName, tVet* tArr, contador* cont){
   if(!strcmp(algName, "quickSort"))
-    quickSort(getVet(tArr), 0, getVetTam(tArr)-1, cont);
+    quickSort(getVet(tArr), 0, getVetTam(tArr)-1, cont);//
   else if(!strcmp(algName, "insertionSort"))
-    insertionSort(getVet(tArr), getVetTam(tArr)-1, cont);
+    insertionSort(getVet(tArr), getVetTam(tArr), cont);//
   else if (!strcmp(algName, "mergeSort"))
-    mergeSort(getVet(tArr), 0, getVetTam(tArr)-1, cont);
+    mergeSort(getVet(tArr), 0, getVetTam(tArr)-1, cont);//
   else if (!strcmp(algName, "countingSort"))
-    countingSort(getVet(tArr), 0, getVetTam(tArr)-1, cont);
+    countingSort(getVet(tArr), getVetTam(tArr), cont);//
   else if (!strcmp(algName, "selectionSort"))
-    selectionSort(getVet(tArr), getVetTam(tArr)-1, cont);
+    selectionSort(getVet(tArr), getVetTam(tArr), cont);//
 }
+
 //codigo gcc para executar 
 //gcc main.c QuickSort/quickSort.c InsertionSort/insertionSort.c CountingSort/countingSort.c MergeSort/mergeSort.c SelectionSort/selectionSort.c Structs/structs.c -o teste
