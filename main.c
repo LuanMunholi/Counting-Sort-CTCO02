@@ -16,8 +16,9 @@ int main() {
   clock_t start, end;
   double tempo_decorrido;
   contador *cont;
+  resetCont(cont);
 
-  tArr = leArquivo("Entradas/Aleatorio/1000/aleatorio_1000_1.txt");
+  tArr = leArquivo("Entradas/Aleatorio/100000/aleatorio_100000_1.txt");
   //imprimeVet(getVet(tArr), getVetTam(tArr));
 
   //Exemplo de captura de tempo do algoritimo
@@ -25,8 +26,11 @@ int main() {
   start = clock();
 
   //Funcao a contar o tempo
-  //selectionSort(getVet(tArr),getVetTam(tArr));
-  mergeSort(getVet(tArr), 0, getVetTam(tArr) - 1, cont);
+  //selectionSort(getVet(tArr),getVetTam(tArr),cont);
+  //mergeSort(getVet(tArr), 0, getVetTam(tArr) - 1, cont);
+  //quickSort(getVet(tArr), 0, getVetTam(tArr)-1, cont);
+  //insertionSort(getVet(tArr), getVetTam(tArr), cont);
+  countingSort(getVet(tArr),getVetTam(tArr),);
 
   // Captura o tempo depois da execução da função
   end = clock();
@@ -37,9 +41,9 @@ int main() {
   printf("\nnovo vetor\n");
   imprimeVet(getVet(tArr), getVetTam(tArr));
 
-  printf("\n A ordenacao levou: %f ms\n",tempo_decorrido);
-  printf("Quantidade de comparacoes: %d\n", getComp(cont));
-  printf("Quantidade de trocas: %d\n", getTrocas(cont));
+  printf("\nA ordenacao levou: %f ms\n",tempo_decorrido);
+  printf("Quantidade de comparacoes: %lld\n", getComp(cont));
+  printf("Quantidade de trocas: %lld\n", getTrocas(cont));
   resetCont(cont);
 }
 

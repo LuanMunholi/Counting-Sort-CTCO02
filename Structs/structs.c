@@ -69,12 +69,12 @@ tVet *leArquivo(char *nomeArquivo) {
 }
 
 // Função que retorna a quantidade de comparações
-int getComp(contador *res) {
+long long int getComp(contador *res) {
     return res->comp;
 }
 
 // Função que retorna a quantidade de trocas
-int getTrocas(contador *res) {
+long long int getTrocas(contador *res) {
     return res->trocas;
 }
 

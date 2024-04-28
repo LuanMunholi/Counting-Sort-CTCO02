@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "countingSort.h"
+#include "../Structs/structs.h"
 
-void countingSort(int arr[], int n, int max) {
+void countingSort(int *v, int n, int max, contador *cont) {
   int output[n];
   int count[max + 1];
   int i;
@@ -12,7 +13,7 @@ void countingSort(int arr[], int n, int max) {
   }
 
   for (i = 0; i < n; i++) {
-    count[arr[i]]++;
+    count[v[i]]++;
   }
 
   for (i = 1; i <= max; i++) {
@@ -20,11 +21,11 @@ void countingSort(int arr[], int n, int max) {
   }
 
   for (i = n - 1; i >= 0; i--) {
-    output[count[arr[i]] - 1] = arr[i];
-    count[arr[i]]--;
+    output[count[v[i]] - 1] = v[i];
+    count[v[i]]--;
   }
 
   for (i = 0; i < n; i++) {
-    arr[i] = output[i];
+    v[i] = output[i];
   }
 }

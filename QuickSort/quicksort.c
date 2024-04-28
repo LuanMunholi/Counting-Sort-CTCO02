@@ -1,6 +1,7 @@
 #include "quickSort.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include "../Structs/structs.h"
 
 void swap(int *a, int *b) {
   int t = *a;
@@ -8,24 +9,27 @@ void swap(int *a, int *b) {
   *b = t;
 }
 
-int partition(int arr[], int low, int high) {
-  int pivot = arr[high];
+int partition(int *v, int low, int high, contador *cont) {
+  int pivot = v[high];
   int i = low - 1;
 
   for (int j = low; j < high; j++) {
-    if (arr[j] < pivot) {
+    addComp(cont);
+    if (v[j] < pivot) {
       i++;
-      swap(&arr[i], &arr[j]);
+      addTroca(cont);
+      swap(&v[i], &v[j]);
     }
   }
-  swap(&arr[i + 1], &arr[high]);
+  addTroca(cont);
+  swap(&v[i + 1], &v[high]);
   return i + 1;
 }
 
-void quickSort(int arr[], int low, int high) {
+void quickSort(int *v, int low, int high, contador *cont) {
   if (low < high) {
-    int pi = partition(arr, low, high);
-    quickSort(arr, low, pi - 1);
-    quickSort(arr, pi + 1, high);
+    int pi = partition(v, low, high, cont);
+    quickSort(v, low, pi - 1, cont);
+    quickSort(v, pi + 1, high, cont);
   }
 }

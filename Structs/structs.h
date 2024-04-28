@@ -27,15 +27,15 @@ tVet *leArquivo(char *nomeArquivo);
 
 // Struct e funções do contador
 typedef struct {
-  int comp;
-  int trocas;
+  long long int comp;
+  long long int trocas;
 } contador;
 
 // Função que retorna a quantidade de comparações
-int getComp(contador *res);
+long long int getComp(contador *res);
 
 // Função que retorna a quantidade de trocas
-int getTrocas(contador *res);
+long long int getTrocas(contador *res);
 
 //Função que adiciona uma comparação
 void addComp(contador *res);
