@@ -52,10 +52,10 @@ tVet *leArquivo(char *nomeArquivo) {
 
   fscanf(file, "%d", &tam); // escaneia o primeiro inteiro
 
-  tVet *str =
-      malloc(sizeof(tVet)); // com o tamanho agora é possivel criar a struct
+  tVet *str = malloc(sizeof(tVet)); // com o tamanho agora é possivel criar a struct
   if (str == NULL) {
     printf("Impossivel alocar struct");
+    free(str);
     fclose(file);
     return NULL;
   }

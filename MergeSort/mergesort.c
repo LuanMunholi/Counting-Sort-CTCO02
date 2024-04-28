@@ -59,6 +59,10 @@ void merge(int *v, int inicio, int meio, int fim, contador *cont) {
     k++;
   }
 
+  // Liberando a memória alocada para V1 e V2
+  free(V1);
+  free(V2);
+
 }
 
 // Função recursiva que executa a fase de divisão do algoritmo mergesort
