@@ -16,7 +16,6 @@ void testDescending(char *algName);
 void sort(char* algName, tVet* tArr, contador* cont);
 
 int main() {
-<<<<<<< HEAD
   //se algum estourar memoria ou processamento, coloque a linha do algoritmo como comentario.
   printf("------ TEST WITH RANDOM NUMBERS ------\n");
   testRandom("quickSort");
@@ -31,18 +30,6 @@ int main() {
   //testAscending("countingSort");
   testAscending("mergeSort");
   testAscending("selectionSort");
-=======
-  tVet *tArr;
-  char inFile[25];
-  char resposta;
-  clock_t start, end;
-  double tempo_decorrido;
-  contador *cont;
-  resetCont(cont);
-
-  tArr = leArquivo("Entradas/Aleatorio/100000/aleatorio_100000_1.txt");
-  //imprimeVet(getVet(tArr), getVetTam(tArr));
->>>>>>> cc27b56234363d39870a678a596cc816df90ae8b
 
   printf("------ TEST WITH DESCENDING ORDER ------\n");
   testDescending("quickSort");
@@ -51,35 +38,12 @@ int main() {
   testDescending("mergeSort");
   testDescending("selectionSort");
 
-<<<<<<< HEAD
   printf("------ TEST WITH ALMOST SORTED ------\n");
   testAlmostSorted("quickSort");
   testAlmostSorted("insertionSort");
   //testAlmostSorted("countingSort");
   testAlmostSorted("mergeSort");
   testAlmostSorted("selectionSort");
-=======
-  //Funcao a contar o tempo
-  //selectionSort(getVet(tArr),getVetTam(tArr),cont);
-  //mergeSort(getVet(tArr), 0, getVetTam(tArr) - 1, cont);
-  //quickSort(getVet(tArr), 0, getVetTam(tArr)-1, cont);
-  //insertionSort(getVet(tArr), getVetTam(tArr), cont);
-  countingSort(getVet(tArr),getVetTam(tArr),);
-
-  // Captura o tempo depois da execução da função
-  end = clock();
-
-  // Calcula o tempo decorrido em milissegundos
-  tempo_decorrido = ((double) (end - start)) * 1000.0 / CLOCKS_PER_SEC;
-
-  printf("\nnovo vetor\n");
-  imprimeVet(getVet(tArr), getVetTam(tArr));
-
-  printf("\nA ordenacao levou: %f ms\n",tempo_decorrido);
-  printf("Quantidade de comparacoes: %lld\n", getComp(cont));
-  printf("Quantidade de trocas: %lld\n", getTrocas(cont));
-  resetCont(cont);
->>>>>>> cc27b56234363d39870a678a596cc816df90ae8b
 }
 
 void testRandom(char* algName){
