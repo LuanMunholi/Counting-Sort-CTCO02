@@ -2,6 +2,18 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+//inicializacao da struct
+contador* inicializarContador() {
+    contador *cont = malloc(sizeof(contador));
+    if (cont == NULL) {
+      printf("Erro ao alocar contador. Saindo...\n");
+      exit (1);
+    }
+    cont->comp = 0;
+    cont->trocas = 0;
+    return cont;
+}
+
 // Função que retorna o tamanho do vetor
 int getVetTam(tVet *res) { return res->tam; }
 
@@ -69,12 +81,12 @@ tVet *leArquivo(char *nomeArquivo) {
 }
 
 // Função que retorna a quantidade de comparações
-int getComp(contador *res) {
+long long int getComp(contador *res) {
     return res->comp;
 }
 
 // Função que retorna a quantidade de trocas
-int getTrocas(contador *res) {
+long long int getTrocas(contador *res) {
     return res->trocas;
 }
 

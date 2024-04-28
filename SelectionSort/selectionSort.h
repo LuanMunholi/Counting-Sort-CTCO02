@@ -1,8 +1,10 @@
 #ifndef Selecao
 #define Selecao
 
-void selectionSort(int *v, int tam);
+#include "../Structs/structs.h"
 
-int buscaMenor(int *v, int inicio, int tam);
+void selectionSort(int *v, int tam, contador *cont);
+
+int buscaMenor(int *v, int inicio, int tam, contador *cont);
 
 #endif // Selecao
