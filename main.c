@@ -19,12 +19,12 @@ int main() {
   //se algum estourar memoria ou processamento, coloque a linha do algoritmo como comentario.
   printf("------ TEST WITH RANDOM NUMBERS ------\n");
   testRandom("quickSort");
-  testRandom("insertionSort");
+  //testRandom("insertionSort");
   //testRandom("countingSort");
-  testRandom("mergeSort");
-  testRandom("selectionSort");
+ // testRandom("mergeSort");
+  //testRandom("selectionSort");
 
-  printf("------ TEST WITH ASCENDING ORDER ------\n");
+  /*printf("------ TEST WITH ASCENDING ORDER ------\n");
   testAscending("quickSort");
   testAscending("insertionSort");
   //testAscending("countingSort");
@@ -43,19 +43,19 @@ int main() {
   testAlmostSorted("insertionSort");
   //testAlmostSorted("countingSort");
   testAlmostSorted("mergeSort");
-  testAlmostSorted("selectionSort");
+  testAlmostSorted("selectionSort");*/
 }
 
 void testRandom(char* algName){
   printf("  [%s]", algName);
-  char inFile[25];
+  char inFile[60];
   tVet *tArr;
   clock_t start, end;
   double tempo_decorrido;
   contador *cont = inicializarContador();
 
   //fazendo o teste de tempo para cada arquivo de entrada para o algoritmo recebido como parametro.
-  for(int i=1000; i<=10000; i=i*10){
+  for(int i=1000; i<=1000000; i=i*10){
     printf("    Entry size: %d\n", i);
     for(int j=1; j<=5; j++){
       sprintf(inFile, "Entradas/Aleatorio/%d/aleatorio_%d_%d.txt", i, i, j);
@@ -76,7 +76,7 @@ void testRandom(char* algName){
 
 void testAscending(char* algName){
   printf("  [%s]", algName);
-  char inFile[25];
+  char inFile[60];
   tVet *tArr;
   clock_t start, end;
   double tempo_decorrido;
@@ -101,7 +101,7 @@ void testAscending(char* algName){
 
 void testDescending(char* algName){
   printf("  [%s]", algName);
-  char inFile[25];
+  char inFile[60];
   tVet *tArr;
   clock_t start, end;
   double tempo_decorrido;
@@ -126,7 +126,7 @@ void testDescending(char* algName){
 
 void testAlmostSorted(char* algName){
   printf("  [%s]", algName);
-  char inFile[25];
+  char inFile[60];
   tVet *tArr;
   clock_t start, end;
   double tempo_decorrido;
