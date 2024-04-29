@@ -8,6 +8,7 @@ void countingSort(int *v, int n, contador *cont) {
   // Encontrando o valor máximo em v
   int max = v[0];
   for (int i = 1; i < n; i++) {
+      addComp(cont);
       if (v[i] > max) {
           max = v[i];
       }
@@ -37,6 +38,7 @@ void countingSort(int *v, int n, contador *cont) {
   // Ordenando os elementos no vetor de saída
   for (i = n - 1; i >= 0; i--) {
     output[count[v[i]] - 1] = v[i];
+    addTroca(cont);
     count[v[i]]--;
   }
 
