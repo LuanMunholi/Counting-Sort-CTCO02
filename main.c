@@ -193,7 +193,7 @@ int main()
     contador *cont = inicializarContador();
 
     // fazendo o teste de tempo para cada arquivo de entrada para o algoritmo recebido como parametro.
-    for (long int i = 1000; i <= 1000000; i = i * 10)
+    for (long int i = 1000; i <= 10000000; i = i * 10)
     {
       printf("    Entry size: %d\n", i);
       for (int j = 1; j <= 5; j++)
@@ -227,7 +227,7 @@ int main()
     contador *cont = inicializarContador();
 
     // fazendo o teste de tempo para cada arquivo de entrada para o algoritmo recebido como parametro.
-    for (int i = 1000; i <= 1000000; i = i * 10)
+    for (int i = 1000; i <= 10000000; i = i * 10)
     {
       printf("    Entry size: %d\n", i);
       sprintf(inFile, "Entradas/Ordem crescente/ordem_crescente_%d.txt", i);
@@ -255,7 +255,7 @@ int main()
     contador *cont = inicializarContador();
 
     // fazendo o teste de tempo para cada arquivo de entrada para o algoritmo recebido como parametro.
-    for (int i = 1000; i <= 1000000; i = i * 10)
+    for (int i = 1000; i <= 10000000; i = i * 10)
     {
       printf("    Entry size: %d\n", i);
       sprintf(inFile, "Entradas/Ordem decrescente/ordem_decrescente_%d.txt", i);
@@ -283,12 +283,12 @@ int main()
     contador *cont = inicializarContador();
 
     // fazendo o teste de tempo para cada arquivo de entrada para o algoritmo recebido como parametro.
-    for (int i = 1000; i <= 1000000; i = i * 10)
+    for (int i = 1000; i <= 10000000; i = i * 10)
     {
       printf("    Entry size: %d\n", i);
       for (int j = 1; j <= 5; j++)
       {
-        sprintf(inFile, "Entradas/Quase Ordenado/%d/aleatorio_%d_%d.txt", i, i, j);
+        sprintf(inFile, "Entradas/Quase Ordenado/%d/quase_ordenado_%d_%d.txt", i, i, j);
         tArr = leArquivo(inFile);
         start = clock();                                                     // inicia relogio
         sort(algName, tArr, cont);                                           // ordena vetor
