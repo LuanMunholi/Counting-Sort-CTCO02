@@ -4,6 +4,9 @@
 
 Este repositório contém implementações dos algoritmos de ordenação Selection Sort, Insertion Sort, Merge Sort e Quick Sort em linguagem C. Além disso, inclui uma implementação do algoritmo Counting Sort para fins de benchmarking.
 
+Projeto desenvolvido como trabalho prático do componente CTCO02 - Algoritmo e Estrutura de Dados II.
+Ciência da Computação - UNIFEI
+
 ## Algoritmos Implementados
 
 1. **Selection Sort**: Ordena a lista selecionando repetidamente o menor elemento da lista não ordenada e movendo-o para o início.
@@ -20,7 +23,7 @@ Este repositório contém implementações dos algoritmos de ordenação Selecti
 
 1. Clone este repositório:
    ```
-   git clone https://github.com/seu-usuario/algoritmos-ordenacao.git
+   git clone https://github.com/LuanMunholi/Counting-Sort-CTCO02/
    ```
 
 2. Compile o código utilizando o compilador C de sua preferência:
