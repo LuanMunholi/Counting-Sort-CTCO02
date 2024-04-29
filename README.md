@@ -5,6 +5,7 @@
 Este repositório contém implementações dos algoritmos de ordenação Selection Sort, Insertion Sort, Merge Sort e Quick Sort em linguagem C. Além disso, inclui uma implementação do algoritmo Counting Sort para fins de benchmarking.
 
 Projeto desenvolvido como trabalho prático do componente CTCO02 - Algoritmo e Estrutura de Dados II.
+
 Ciência da Computação - UNIFEI
 
 ## Algoritmos Implementados
