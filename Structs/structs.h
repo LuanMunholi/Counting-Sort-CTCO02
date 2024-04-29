@@ -10,6 +10,10 @@ typedef struct {
   int tam;
 } tVet;
 
+
+//função para liberara memoria do vetor e da struct
+void liberarMemoria(tVet *res);
+
 // Função que retorna o tamanho do vetor
 int getVetTam(tVet *res);
 

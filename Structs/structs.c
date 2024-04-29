@@ -105,3 +105,10 @@ void resetCont(contador *res) {
     res->comp = 0;
     res->trocas = 0;
 }
+
+void liberarMemoria(tVet *res) {
+    // Liberar a memória alocada para o vetor
+    free(res->vet);
+    // Liberar a própria estrutura
+    free(res);
+}
